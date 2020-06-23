@@ -108,6 +108,14 @@ public class Order implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+	
+	public Double getTotal() {
+		Double sum = 0.0;
+		for (OrderItem x : items) {
+			sum = sum + x.getSubTotal();
+		}
+		return sum;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
